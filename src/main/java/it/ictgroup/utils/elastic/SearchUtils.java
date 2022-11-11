@@ -1,4 +1,4 @@
-package it.coopservice.asset.utils;
+package it.ictgroup.utils.elastic;
 
 import co.elastic.clients.elasticsearch._types.FieldValue;
 import co.elastic.clients.elasticsearch._types.SortOptions;
@@ -9,7 +9,6 @@ import co.elastic.clients.elasticsearch._types.query_dsl.QueryBuilders;
 import co.elastic.clients.elasticsearch.core.SearchRequest;
 import co.elastic.clients.json.JsonData;
 import co.elastic.clients.util.ObjectBuilder;
-import it.coopservice.asset.management.AppConstants;
 import org.apache.commons.lang3.tuple.Pair;
 
 import javax.ws.rs.core.MultivaluedHashMap;
@@ -22,7 +21,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static it.coopservice.asset.management.AppConstants.*;
+import static it.ictgroup.service.AppConstants.*;
 
 
 public class SearchUtils {
@@ -562,7 +561,7 @@ public class SearchUtils {
             fullKey = prefix + "." + key;
         }
         if (raw) {
-            fullKey += "." + AppConstants.RAW;
+            fullKey += "." + RAW;
         }
         return fullKey;
     }

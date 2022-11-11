@@ -1,18 +1,19 @@
-package it.coopservice.asset.utils;
+package it.ictgroup.utils.elastic;
 
 import co.elastic.clients.elasticsearch.core.search.Hit;
+import it.ictgroup.utils.json.JacksonMapper;
 
 import java.util.HashMap;
 import java.util.Map;
+import static it.ictgroup.service.AppConstants.*;
 
-import static it.coopservice.asset.management.AppConstants.*;
-
+@SuppressWarnings("unused")
 public class ElasticUtils {
 
     public static final String WITH = "_";
 
     public static Map<String, Object> buildDocument(Hit<?> hit) {
-        return buildDocument(hit.id(), JsonDataUtils.jsonDataToMap(hit.source()));
+        return buildDocument(hit.id(), JacksonMapper.jsonDataToMap(hit.source()));
     }
 
     @SuppressWarnings("unchecked,rawtypes")

@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringJoiner;
 
+@SuppressWarnings("unused")
 public class PaginatedResponse<T> {
 
     final long total;

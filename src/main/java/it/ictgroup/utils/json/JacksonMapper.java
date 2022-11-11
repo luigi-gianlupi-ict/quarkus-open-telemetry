@@ -1,10 +1,13 @@
-package it.ictgroup.utils;
+package it.ictgroup.utils.json;
 
 
+import co.elastic.clients.json.JsonData;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import jakarta.json.JsonValue;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -72,5 +75,14 @@ public class JacksonMapper {
     }
 
     private JacksonMapper() {
+    }
+
+    public static Map<String,Object> jsonDataToMap(Object data) {
+        if (data instanceof Map) {
+            return (Map<String, Object>) data;
+        } else {
+            JsonValue json = ((JsonData) data).toJson();
+            return stringToMap(json.toString());
+        }
     }
 }

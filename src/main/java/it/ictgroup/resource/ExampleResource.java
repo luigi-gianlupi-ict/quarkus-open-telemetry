@@ -1,4 +1,4 @@
-package it.ictgroup;
+package it.ictgroup.resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

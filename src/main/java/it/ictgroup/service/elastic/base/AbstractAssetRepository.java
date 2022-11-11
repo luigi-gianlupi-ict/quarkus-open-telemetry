@@ -1,4 +1,4 @@
-package it.ictgroup.service.elastic;
+package it.ictgroup.service.elastic.base;
 
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
@@ -28,7 +28,7 @@ public abstract class AbstractAssetRepository implements Serializable {
 
 
     @Inject
-    ElasticsearchClient client;
+    protected ElasticsearchClient elasticsearchClient;
 
     protected void logRequest(RequestBase searchRequest, String indexValue) {
         LOG.infof(String.format("-----------------> ElasticSearch Query %s ----------------- \n %s -------------------------------------",
@@ -77,7 +77,7 @@ public abstract class AbstractAssetRepository implements Serializable {
 
             logRequest(searchRequest, searchRequest.index());
 
-            SearchResponse<?> response = client.search(searchRequest, Map.class);
+            SearchResponse<?> response = elasticsearchClient.search(searchRequest, Map.class);
             LOG.debug("Response: " + response);
 
             return Optional.of(response)
