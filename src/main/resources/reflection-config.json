@@ -1,6 +1,6 @@
 [
   {
-    "name" : "org.apache.http.impl.auth.BasicScheme",
+    "name" : "it.ictgroup.utils.LogServiceMessage",
     "allDeclaredConstructors" : true,
     "allPublicConstructors" : true,
     "allDeclaredMethods" : true,
@@ -9,7 +9,7 @@
     "allPublicFields" : true
   },
   {
-    "name" : "org.apache.http.impl.client.BasicAuthCache",
+    "name" : "it.ictgroup.utils.response.ServiceResponse",
     "allDeclaredConstructors" : true,
     "allPublicConstructors" : true,
     "allDeclaredMethods" : true,

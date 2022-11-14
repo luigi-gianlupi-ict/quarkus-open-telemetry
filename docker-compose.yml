@@ -1,0 +1,11 @@
+version: "3.5"
+services:
+  quarkus-open-telemetry:
+    image: quarkus-open-telemetry:latest
+    container_name: quarkus-open-telemetry
+    links:
+      - postgres:db
+    ports:
+      - 8080:8080
+    expose:
+      - "8080"
