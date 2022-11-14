@@ -1,7 +1,7 @@
-package it.ictgroup.util.exceptions;
+package it.ictgroup.utils.exceptions;
 
 
-import it.ictgroup.util.LogServiceMessage;
+import it.ictgroup.utils.LogServiceMessage;
 import javax.transaction.Transactional;
 import java.io.Serial;
 import java.util.ArrayList;

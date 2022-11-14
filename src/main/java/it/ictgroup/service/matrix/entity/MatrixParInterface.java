@@ -1,12 +1,9 @@
 package it.ictgroup.service.matrix.entity;
 
-import it.ictgroup.util.exceptions.EmmaServiceException;
+import it.ictgroup.utils.exceptions.EmmaServiceException;
 import java.io.Serializable;
 
-/**
- * @author Riccardo Merolla
- *         Created on 23/10/14.
- */
+@SuppressWarnings("unused")
 public interface MatrixParInterface extends Serializable{
 
     String getValue(String key) throws EmmaServiceException;

@@ -20,6 +20,7 @@ public abstract class MatrixParAbstract {
 
     private KeyRowConfGlobal id;
 
+
     private String value;
 
     @Id

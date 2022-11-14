@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
 
-import it.ictgroup.config.Config;
+import it.ictgroup.config.service.Config;
 import it.ictgroup.model.pojo.PaginatedResponse;
 import it.ictgroup.service.elastic.CommissionRepository;
 import org.jboss.logging.Logger;

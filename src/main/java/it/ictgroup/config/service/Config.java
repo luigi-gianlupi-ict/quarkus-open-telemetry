@@ -1,4 +1,4 @@
-package it.ictgroup.config;
+package it.ictgroup.config.service;
 
 import it.ictgroup.config.annotation.ConfigParam;
 import it.ictgroup.config.annotation.ConfigParamGetter;
@@ -26,21 +26,12 @@ public class Config extends AbstractIndexConfig {
     @ConfigParam protected Optional<String> indexConf = Optional.empty();
     @ConfigParam protected Optional<String> camelEnabledConf = Optional.empty();
     @ConfigParam protected Optional<String> emmaEventJmsRouteConf = Optional.empty();
-
-    @ConfigParam protected Optional<String> kimeraMezziCommission = Optional.empty();
-    @ConfigParam protected Optional<List<String>> kimeraFlotteEntities = Optional.empty();
-    @ConfigParam protected Optional<String> kimeraMailFrom = Optional.empty();
     @ConfigParam protected Optional<String> notificationIndexConf = Optional.empty();
-    @ConfigParam protected Optional<String> mailMode = Optional.empty();
 
     public static final String JMS_EMMA_QUEUE = "emmaeventQ";
     public static final String JMS_EMMA_TOPIC = "emmaeventT";
     public static final String EMMA_EVENT_JMS_ROUTE = "jms:topic:"+ JMS_EMMA_TOPIC + "?connectionFactory=jmsConnectionFactory";
     public static final String CAMEL_PUBLISH_EVENT = "direct:flotte_emmaevent_out";
-
-    public static final String KIMERA_MEZZI_COMMISSION = "1900028";
-    public static final String KIMERA_FLOTTE_ENTITIES = "flottemezzi,flotteattrezzature";
-    public static final String KIMERA_MAIL_FROM = "richieste.manutenzione@coopservice.it";
 
     public static final String NOTIFICATION = "notification";
 

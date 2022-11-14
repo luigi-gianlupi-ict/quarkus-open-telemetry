@@ -6,10 +6,6 @@ import javax.persistence.Embedded;
 import java.io.Serial;
 import java.io.Serializable;
 
-/**
- * @author Riccardo Merolla
- *         Created on 23/10/14.
- */
 @Embeddable
 @SuppressWarnings("unused")
 public class KeyRowConfGlobal implements Serializable {

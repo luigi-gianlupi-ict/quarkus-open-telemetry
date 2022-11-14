@@ -1,8 +1,9 @@
-package it.ictgroup.util;
+package it.ictgroup.utils;
 
 import java.time.Instant;
 import java.util.Map;
 
+@SuppressWarnings("unused")
 public class LogServiceMessage {
     public enum Status {INFO, SUCCESS, WARNING, ERROR, SEVERE}
 
