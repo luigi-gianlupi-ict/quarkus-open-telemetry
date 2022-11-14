@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
 
+import it.ictgroup.config.Config;
 import it.ictgroup.model.pojo.PaginatedResponse;
 import it.ictgroup.service.elastic.CommissionRepository;
 import org.jboss.logging.Logger;
@@ -22,10 +23,14 @@ public class TracedResource {
     @Inject
     protected CommissionRepository commissionRepository;
 
+    @Inject
+    protected Config config;
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public PaginatedResponse<Map<String, Object>> commesse() {
         LOG.info("traced");
+        boolean refreshDefault = config.getRefreshDefault();
         MultivaluedMap<String, String> multivaluedMap = new MultivaluedHashMap<>();
         return commissionRepository.getCommesse(multivaluedMap,null,0,10,null);
     }
