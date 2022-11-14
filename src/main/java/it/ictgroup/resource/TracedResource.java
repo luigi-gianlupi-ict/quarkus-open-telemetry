@@ -29,8 +29,9 @@ public class TracedResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public PaginatedResponse<Map<String, Object>> commesse() {
-        LOG.info("traced");
+        LOG.info("TracedResource: /traced called");
         boolean refreshDefault = config.getRefreshDefault();
+        LOG.infof("TracedResource: refreshDefault = %b", refreshDefault);
         MultivaluedMap<String, String> multivaluedMap = new MultivaluedHashMap<>();
         return commissionRepository.getCommesse(multivaluedMap,null,0,10,null);
     }
