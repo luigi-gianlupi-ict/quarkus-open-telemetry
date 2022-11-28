@@ -7,6 +7,7 @@ import co.elastic.clients.elasticsearch._types.query_dsl.BoolQuery;
 import co.elastic.clients.elasticsearch.core.SearchRequest;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.ResponseBody;
+import io.opentelemetry.api.trace.Tracer;
 import it.ictgroup.model.pojo.PaginatedResponse;
 import it.ictgroup.utils.elastic.ElasticUtils;
 import it.ictgroup.utils.elastic.SearchUtils;
@@ -29,6 +30,9 @@ public abstract class AbstractAssetRepository implements Serializable {
 
     @Inject
     protected ElasticsearchClient elasticsearchClient;
+
+    @Inject
+    protected Tracer tracer;
 
     protected void logRequest(RequestBase searchRequest, String indexValue) {
         LOG.infof(String.format("-----------------> ElasticSearch Query %s ----------------- \n %s -------------------------------------",

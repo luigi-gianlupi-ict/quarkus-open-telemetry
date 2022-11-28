@@ -29,9 +29,6 @@ public class ConfigResource {
     @Inject
     Config config;
 
-   /* @Inject
-    CamelBootstrap camelBootstrap;*/
-
     @GET
     @Path("_refresh")
     @PermitAll
@@ -54,19 +51,4 @@ public class ConfigResource {
         return Response.ok(responseBuilder.build()).build();
     }
 
-   /* @GET
-    @Path("camel/_restart")
-    @PermitAll
-    public Response restartCamel(@Context UriInfo uriInfo) {
-        LOG.log(Level.INFO, "Refreshing config...");
-        config.refreshConfig();
-        LOG.log(Level.INFO, "Config refreshed!");
-
-        LOG.log(Level.INFO, "Restarting camel...");
-        camelBootstrap.stop();
-        camelBootstrap.start();
-        LOG.log(Level.INFO, "Camel restarted!");ServiceResponseBuilder<String> responseBuilder = new ServiceResponseBuilder<>();
-        responseBuilder.message(LogServiceMessageBuilder.success(null, "Camel restarted!"));
-        return Response.ok(responseBuilder.build().asMap()).build();
-    }*/
 }

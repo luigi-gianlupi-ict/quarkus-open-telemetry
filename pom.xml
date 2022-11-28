@@ -16,10 +16,8 @@
         <quarkus.platform.version>2.14.0.Final</quarkus.platform.version>
         <elasticsearch-java.version>8.5.0</elasticsearch-java.version>
         <apache-commons.version>3.12.0</apache-commons.version>
-        <camel-quarkus-support-httpclient.version>2.14.0</camel-quarkus-support-httpclient.version>
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
-        <shade-plugin.version>3.0.0</shade-plugin.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -30,35 +28,27 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
+          <!--  <dependency>
                 <groupId>${quarkus.platform.group-id}</groupId>
                 <artifactId>quarkus-camel-bom</artifactId>
                 <version>${quarkus.platform.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
+            </dependency>-->
         </dependencies>
     </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
+            <artifactId>quarkus-resteasy</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-resteasy-reactive-jaxb</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-resteasy-reactive</artifactId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-opentelemetry</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-arc</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -105,15 +95,11 @@
             <version>${apache-commons.version}</version>
         </dependency>
 
-        <!-- <dependency>
-           <groupId>org.apache.camel.quarkus</groupId>
-           <artifactId>camel-quarkus-support-httpclient</artifactId>
-           <version>${camel-quarkus-support-httpclient.version}</version>
-       </dependency>-->
-        <!--<dependency>
-           <groupId>org.apache.camel.quarkus</groupId>
-           <artifactId>camel-quarkus-opentelemetry</artifactId>
-       </dependency>-->
+        <dependency>
+            <groupId>it.ictgroup</groupId>
+            <artifactId>qsixmatrixclient</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
 
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -198,4 +184,14 @@
             </properties>
         </profile>
     </profiles>
+
+    <repositories>
+        <repository>
+            <id>local.snapshots</id>
+            <name>Local Snapshot Repository</name>
+            <url>file:/home/luigigianlupi/Projects/q-six-matrix-client/repo</url>
+        </repository>
+    </repositories>
+
+
 </project>

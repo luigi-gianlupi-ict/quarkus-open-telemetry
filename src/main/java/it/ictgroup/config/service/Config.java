@@ -24,14 +24,7 @@ public class Config extends AbstractIndexConfig {
     @ConfigParam
     protected Optional<Boolean> defaultRefreshConf = Optional.empty();
     @ConfigParam protected Optional<String> indexConf = Optional.empty();
-    @ConfigParam protected Optional<String> camelEnabledConf = Optional.empty();
-    @ConfigParam protected Optional<String> emmaEventJmsRouteConf = Optional.empty();
     @ConfigParam protected Optional<String> notificationIndexConf = Optional.empty();
-
-    public static final String JMS_EMMA_QUEUE = "emmaeventQ";
-    public static final String JMS_EMMA_TOPIC = "emmaeventT";
-    public static final String EMMA_EVENT_JMS_ROUTE = "jms:topic:"+ JMS_EMMA_TOPIC + "?connectionFactory=jmsConnectionFactory";
-    public static final String CAMEL_PUBLISH_EVENT = "direct:flotte_emmaevent_out";
 
     public static final String NOTIFICATION = "notification";
 
@@ -79,39 +72,8 @@ public class Config extends AbstractIndexConfig {
         return null;
     }
 
-    @ConfigParamGetter
-    public String getCamelEnabled() {
-        try {
-            if (camelEnabledConf.isEmpty()) {
-                camelEnabledConf =
-                        Optional.of(matrixParService
-                                .getValue("camel.enabled")
-                                .map(MatrixParAppl::getValue)
-                                .orElse("Y"));
-            }
-            return camelEnabledConf.get();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
-    @ConfigParamGetter
-    public String getEmmaEventRoute() {
-        try {
-            if (emmaEventJmsRouteConf.isEmpty()) {
-                emmaEventJmsRouteConf =
-                        Optional.of(matrixParService
-                                .getValue("camel.emmaevent.route")
-                                .map(MatrixParAppl::getValue)
-                                .orElse(EMMA_EVENT_JMS_ROUTE));
-            }
-            return emmaEventJmsRouteConf.get();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+
 
 
     @ConfigParamGetter
