@@ -3,7 +3,6 @@ package it.ictgroup.service.event;
 import it.ictgroup.model.pojo.CustomObject;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 import org.jboss.logging.Logger;
-
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped

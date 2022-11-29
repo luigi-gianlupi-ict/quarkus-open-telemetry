@@ -21,7 +21,6 @@ public class EventConsumer {
     @Broadcast
     public CustomObject process(CustomObject customObject) {
         LOG.infof("Custom Object %s %s", customObject.getName(),customObject.getSurname());
-        customObject.setName("Mario");
         return customObject;
     }
 
