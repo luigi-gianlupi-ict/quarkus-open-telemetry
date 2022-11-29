@@ -1,10 +1,10 @@
 echo -e "------------------------------------"
-echo -e "./mvnw package -Pnative -Dquarkus.native.container-build=true"
+echo -e "mvn clean package -DskipTests=true"
 echo -e "------------------------------------"
-./mvnw package -Pnative -Dquarkus.native.container-build=true
+./mvnw package -DskipTests
 echo -e "------------------------------------"
-echo -e "docker build -f src/main/docker/Dockerfile.native -t quarkus-open-telemetry ."
-docker build -f src/main/docker/Dockerfile.native -t quarkus-open-telemetry .
+echo -e "docker build with par image name = quarkus-open-telemetry"
+docker build -f src/main/docker/Dockerfile.jvm -t quarkus-open-telemetry .
 echo -e "------------------------------------"
 
 

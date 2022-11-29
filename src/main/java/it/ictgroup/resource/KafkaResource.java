@@ -5,10 +5,6 @@ import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.eclipse.microprofile.reactive.messaging.Message;
 import org.jboss.logging.Logger;
-import org.jboss.resteasy.annotations.SseElementType;
-import org.reactivestreams.Publisher;
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -31,7 +27,7 @@ public class KafkaResource {
     Emitter<Long> emitter;*/
 
     @Inject
-    @Channel("event")
+    @Channel("event-out")
     Emitter<CustomObject> emitter;
 
     @GET

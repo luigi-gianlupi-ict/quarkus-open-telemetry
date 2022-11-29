@@ -6,8 +6,9 @@ services:
     links:
       - postgres:db
     ports:
-      - 8080:8080
+      - 8889:8889
     expose:
-      - "8080"
+      - "8889"
+      - "29092"
     extra_hosts:
       - "host.docker.internal:host-gateway"
