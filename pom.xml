@@ -101,6 +101,15 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
+        <!-- KAFKA -->
+
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
+        </dependency>
+
+        <!--TEST-->
+
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>

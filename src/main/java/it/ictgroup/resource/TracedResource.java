@@ -37,7 +37,8 @@ public class TracedResource {
         LOG.info("TracedResource: /traced called");
         boolean refreshDefault = config.getRefreshDefault();
         LOG.infof("TracedResource: refreshDefault = %b", refreshDefault);
-        serviceClient.recordFindByCode("tipologiefamiglieflotte", "M", null).orElse(null);
+        // TO DATA SET -> MATRIX
+        //serviceClient.recordFindByCode("tipologiefamiglieflotte", "M", null).orElse(null);
         MultivaluedMap<String, String> multivaluedMap = new MultivaluedHashMap<>();
         return commissionRepository.getCommesse(multivaluedMap,null,0,10,null);
     }

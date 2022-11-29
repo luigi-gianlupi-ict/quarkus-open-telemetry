@@ -7,6 +7,8 @@ import java.util.StringJoiner;
 @SuppressWarnings("unused")
 public class PaginatedResponse<T> {
 
+    // FROM ASSET RS!
+
     final long total;
     String scrollId;
 
