@@ -2,11 +2,10 @@ package it.ictgroup.security;
 
 import io.quarkus.security.identity.SecurityIdentity;
 import it.ictgroup.asset.framework.auth.ApiFunction;
-import it.ictgroup.asset.framework.auth.entity.AuthTokenBean;
-import it.ictgroup.asset.framework.auth.entity.HeaderConstant;
 import it.ictgroup.asset.framework.auth.entity.AuthDecoratedResult;
 import it.ictgroup.asset.framework.auth.entity.AuthResult;
-//import it.ictgroup.auth.AuthTokenBean;
+import it.ictgroup.asset.framework.auth.entity.AuthTokenBean;
+import it.ictgroup.asset.framework.auth.entity.HeaderConstant;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.jboss.logging.Logger;
 
@@ -16,7 +15,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.container.ResourceInfo;
-import javax.ws.rs.core.*;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
 import java.lang.reflect.Method;
 import java.util.Optional;
@@ -33,26 +34,14 @@ public class SecurityOverrideFilter implements ContainerRequestFilter, HeaderCon
     @Context
     SecurityContext securityContext;
 
-
     @Inject
     JsonWebToken jsonWebToken;
-
-/*
-    @Inject
-    AuthzClient authzClient;
-*/
 
     @Inject
     SecurityIdentity identity;
 
     @Inject
     private AuthTokenBean authTokenBean;
-
-    // 401 - Access denied
-   /* private static final Response ACCESS_UNAUTHORIZED = Response.status(Response.Status.UNAUTHORIZED)
-            .type(MediaType.TEXT_PLAIN_TYPE).entity("Not authorized.")
-            .header(HttpHeaders.WWW_AUTHENTICATE, "Bearer realm=\"emma\" error=\"invalid_token\" error_description=\"Token expired\"")
-            .build();*/
 
 
     @Override
@@ -90,8 +79,6 @@ public class SecurityOverrideFilter implements ContainerRequestFilter, HeaderCon
                     .ifPresent(username -> requestContext.getHeaders().add(PARAM_AUTH_ID, username));
             Optional.ofNullable(decoratedResult.getGroup())
                     .ifPresent(group -> requestContext.getHeaders().add(GROUP, group));
-           /* Optional.ofNullable(decoratedResult.getCommission())
-                    .ifPresent(commissionCode -> requestContext.getHeaders().add(COMMISSION, commissionCode));*/
             Optional.ofNullable(decoratedResult.getCustomer())
                     .ifPresent(customer -> requestContext.getHeaders().add(CUSTOMER, customer));
             Optional.ofNullable(decoratedResult.getProfilingGroups())
