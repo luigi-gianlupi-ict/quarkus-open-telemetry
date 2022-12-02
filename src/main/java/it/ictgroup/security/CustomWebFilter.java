@@ -9,28 +9,32 @@ import java.io.IOException;
 import java.security.Principal;
 import java.util.Map;
 
+import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
-import javax.servlet.FilterChain;
+/*import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponse;*/
 
-@WebFilter(urlPatterns = "/*")
-public class CustomWebFilter extends HttpFilter {
+//@WebFilter(urlPatterns = "/*")
+public class CustomWebFilter /*extends HttpFilter*/ {
 
-    private static final long serialVersionUID = 1L;
+  /*  private static final long serialVersionUID = 1L;
+    HttpServletRequest httpServletRequest;
+
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
             throws IOException, ServletException {
-        HttpServletRequest httpServletRequest = (HttpServletRequest) req;
+        httpServletRequest = (HttpServletRequest) req;
         HttpServletResponse httpServletResponse = (HttpServletResponse) res;
 
-        final KeycloakSecurityContext keycloakSecurityContext = (KeycloakSecurityContext) httpServletRequest.getSession().getAttribute(KeycloakSecurityContext.class.getName());
+       // KeycloakSecurityContext keycloakSecurityContext = ((KeycloakPrincipal) httpServletRequest.getUserPrincipal()).getKeycloakSecurityContext();
+
         final KeycloakSecurityContext keycloakSecurityContext2 = (KeycloakSecurityContext) httpServletRequest.getAttribute(KeycloakSecurityContext.class.getName());
 
         final Principal userPrincipal = httpServletRequest.getUserPrincipal();
@@ -48,6 +52,6 @@ public class CustomWebFilter extends HttpFilter {
         } else {
         }
         chain.doFilter(httpServletRequest, httpServletResponse);
-    }
+    }*/
 
 }

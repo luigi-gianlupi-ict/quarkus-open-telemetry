@@ -1,6 +1,6 @@
 package it.ictgroup.service.matrix.service;
 
-import it.ictgroup.auth.PaginatedListWrapper;
+import it.ictgroup.asset.framework.index.entity.PaginatedListWrapper;
 import it.ictgroup.service.matrix.entity.DomainsValue;
 import it.ictgroup.service.matrix.entity.KeyRowConfGlobal;
 import it.ictgroup.service.matrix.entity.MatrixParAppl;
